@@ -1,0 +1,53 @@
+{
+	"manifest_version": 1,
+	"type":"WebApp",
+	"meta":{
+		"name":"HomeAssistant",
+		"version":"1.0",
+		"minimum-overwolf-version": "0.77.4.0",
+		"author":"Bluscream",
+		"description":"HomeAssistant Dashboard for Overwolf",
+        "dock_button_title": "HomeAssistant",
+        "icon": "icons/IconMouseOver.png",
+        "icon_gray": "icons/IconMouseNormal.png",
+        "launcher_icon": "icons/launcher_icon.ico",
+        "window_icon": "icons/IconMouseOver.png"
+	},
+	"data": {
+		"start_window":"index",
+		"windows":{
+			"index":{
+				"file":"index.html",
+				"transparent":true,
+				"resizable":true,
+				"show_in_taskbar": true,
+				"size": {
+					"width": 1280,
+					"height": 720
+				},
+				"start_position": {
+					"Top": 100,
+					"Left": 200
+				}
+			}
+		},
+		"externally_connectable" : {
+			"matches" : []
+		},
+		"content_scripts" : [
+			{
+				"matches" : [ "http://homeassistant.local:8123/*" ],
+				"css" : [ ],
+				"js" : [ ]
+			}
+		],
+		"hotkeys" : {
+			"open" : {
+				"title" : "HomeAssistant",
+				"category" : "Apps",
+				"default" : "Ctrl+Shift+V",
+				"action-type" : "toggle"
+			}
+		}
+	}
+}
